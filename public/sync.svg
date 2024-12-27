@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="19.381104mm"
+   height="19.381119mm"
+   viewBox="0 0 19.381104 19.381119"
+   version="1.1"
+   id="svg5"
+   xml:space="preserve"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="iconsv2.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#111111"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="2.6532576"
+     inkscape:cx="2147.5487"
+     inkscape:cy="1161.4025"
+     inkscape:window-width="3440"
+     inkscape:window-height="1440"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" /><defs
+     id="defs2" /><g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-586.62148,-217.66439)"><g
+       style="fill:#ffffff;stroke-width:10.9213"
+       id="g20711"
+       transform="matrix(1.2113197,0,0,1.2113197,586.62149,217.6644)"
+       inkscape:export-filename="sync.svg"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300"><g
+         fill="#000000"
+         id="g20700"
+         style="fill:#ffffff;stroke-width:31.7942"><path
+           d="M 8.5,3.75 A 0.75,0.75 0 0 0 7,3.75 V 8 c 0,0.284 0.16,0.544 0.415,0.67 l 2.5,1.25 a 0.75,0.75 0 1 0 0.67,-1.34 L 8.5,7.535 Z"
+           id="path20696"
+           style="fill:#ffffff;stroke-width:10.9213" /><path
+           fill-rule="evenodd"
+           d="M 8,0 A 8,8 0 1 0 8,16 8,8 0 0 0 8,0 Z M 1.5,8 a 6.5,6.5 0 1 1 13,0 6.5,6.5 0 0 1 -13,0 z"
+           clip-rule="evenodd"
+           id="path20698"
+           style="fill:#ffffff;stroke-width:92.5607" /></g></g></g><style
+     type="text/css"
+     id="style2528">
+	.linesandangles_een{fill:#111918;}
+</style></svg>

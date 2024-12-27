@@ -1,6 +1,6 @@
-
 "use client";
 
+import React, { useEffect, useState } from "react";
 import {
   ScatterChart,
   XAxis,
@@ -11,8 +11,7 @@ import {
   Legend,
   Scatter,
 } from "recharts";
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/TableChart/table";
-import { useEffect, useState } from "react";
+import Card from "@/components/ui/Card/Card";
 import processData from "../../../../data/processData"; // Adjust path as needed
 
 interface BubbleChartData {
@@ -21,7 +20,7 @@ interface BubbleChartData {
   size: number;
 }
 
-const BubbleChartContainer: React.FC = () => {
+const BubbleCard: React.FC = () => {
   const [bubbleData, setBubbleData] = useState<BubbleChartData[]>([]);
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
 
@@ -43,74 +42,72 @@ const BubbleChartContainer: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center">
-      <h2 className="text-2xl font-bold mb-4">Message Type Bubble Chart</h2>
-      <ResponsiveContainer width="100%" height={400}>
-        <ScatterChart>
-          <CartesianGrid />
-          <XAxis dataKey="category" name="Message Type" />
-          <YAxis dataKey="value" name="Log Count" />
-<Tooltip
-  cursor={{ strokeDasharray: "6 6" }}
-  formatter={(value: number, name: string) => {
-    if (name === "Log Count") {
-      return [value.toFixed(2), "Log Count"]; // Limit to 2 decimal places
-    }
-    return [value, name];
-  }}
-/>          <Legend />
-          <Scatter
-            name="Message Types"
-            data={bubbleData}
-            fill="#8884d8"
-             line={{ stroke: "#82ca9d", strokeWidth: 2 }}
-            dataKey="size"
-      onMouseEnter={(data) => setHoveredCategory(data.category)}
-      onMouseLeave={() => setHoveredCategory(null)}
-          >
-  {bubbleData.map((entry) => (
-        <circle
-          key={entry.category}
-          cx={entry.category}
-          cy={entry.value}
-          r={hoveredCategory === entry.category ? entry.size * 1.5 : entry.size}
-          fill={hoveredCategory === entry.category ? "#ff7300" : "#8884d8"}
-          style={{
-            transition: "r 0.2s ease-in-out",
-            stroke: hoveredCategory === entry.category ? "#ff7300" : "none",
-            strokeWidth: hoveredCategory === entry.category ? 2 : 1,
-          }}
-        />
-      ))}
-          </Scatter>
-        </ScatterChart>
-      </ResponsiveContainer>
+    <Card
+      title="Communication Methods"
+      description="Interactive Line & Bubble Chart to comunication methods"
+    >
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Chart Section */}
+        <div className="flex justify-center items-center">
+          <ResponsiveContainer width="100%" height={400}>
+            <ScatterChart>
+              <CartesianGrid />
+              <XAxis dataKey="category" name="Message Type" />
+              <YAxis dataKey="value" name="Log Count" />
+              <Tooltip
+                cursor={{ strokeDasharray: "6 6" }}
+                formatter={(value: number, name: string) =>
+                  name === "Log Count"
+                    ? [value.toFixed(2), "Log Count"]
+                    : [value, name]
+                }
+              />
+              <Legend />
+              <Scatter
+                name="Message Types"
+                data={bubbleData}
+                fill="#8884d8"
+                line={{ stroke: "#82ca9d", strokeWidth: 2 }}
+                dataKey="size"
+                onMouseEnter={(data) => setHoveredCategory(data.category)}
+                onMouseLeave={() => setHoveredCategory(null)}
+              />
+            </ScatterChart>
+          </ResponsiveContainer>
+        </div>
 
-      {/* Interactive Table */}
-      <h2 className="mt-8 text-lg font-semibold">Message Type Counts</h2>
-      <Table className="mt-4 w-full border border-gray-300">
-        <TableHeader>
-          <TableRow>
-            <TableHead className="border px-4 py-2">Message Type</TableHead>
-            <TableHead className="border px-4 py-2">Count</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {bubbleData.map((item) => (
-            <TableRow
-              key={item.category}
-              className={`${hoveredCategory === item.category ? "bg-gray-200" : ""}`}
-              onMouseEnter={() => handleMouseEnter(item.category)}
-              onMouseLeave={handleMouseLeave}
-            >
-              <TableCell className="border px-4 py-2">{item.category}</TableCell>
-              <TableCell className="border px-4 py-2">{item.size}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </div>
+        {/* Table Section */}
+        <div>
+          <h3 className="text-lg font-semibold text-center">
+            Communication Method Counts
+          </h3>
+          <table className="table-auto w-full mt-4 border-collapse border border-gray-300 text-sm">
+            <thead>
+              <tr>
+                <th className="border px-4 py-2">Message Type</th>
+                <th className="border px-4 py-2">Count</th>
+              </tr>
+            </thead>
+            <tbody>
+              {bubbleData.map((item) => (
+                <tr
+                  key={item.category}
+                  className={`${
+                    hoveredCategory === item.category ? "bg-gray-200" : ""
+                  }`}
+                  onMouseEnter={() => handleMouseEnter(item.category)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <td className="border px-4 py-2">{item.category}</td>
+                  <td className="border px-4 py-2">{item.size}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </Card>
   );
 };
 
-export default BubbleChartContainer;
+export default BubbleCard;
